@@ -1,0 +1,28 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/*  */
+
+/* .swiper-horizontal {
+  overflow: visible;
+} */
+
+.coustomSelect {
+  width: 130px;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.coustomSelect option {
+  width: 250px;
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  color: brown;
+}
