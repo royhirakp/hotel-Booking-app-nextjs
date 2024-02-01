@@ -78,7 +78,7 @@ const SwiperComponent = () => {
         <SwiperControlButton />
       </Box>
       {[
-        { img: "/hotelsphoto/g.png", id: "1" },
+        { img: "/RoomBookingpage/room1.jpg", id: "1" },
         { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png", id: "2" },
         { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png", id: "3" },
         { img: "/hotelsphoto/Screenshot 2023-10-03 220328.png", id: "4" },

@@ -11,7 +11,10 @@ import {
   handelNextsFromState,
   handelPreviousFromState,
 } from "@/redux/slices/BookingSlice";
+
 import { useDispatch } from "react-redux";
+
+import { useGetAllRoomsQuery } from "@/redux/apiRequest/LoginRegister";
 const BookingPage = () => {
   const [state, setState] = useState(0);
   const dispatch = useDispatch();
@@ -21,6 +24,9 @@ const BookingPage = () => {
   function handelNext() {
     dispatch(handelNextsFromState({}));
   }
+
+  const { data } = useGetAllRoomsQuery({});
+  console.log("data====", data?.roomsData);
 
   return (
     <div>

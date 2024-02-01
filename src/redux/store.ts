@@ -5,6 +5,11 @@ import Filterslice from "@/redux/slices/FilterSlice";
 // persist
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
+//code / for api request auth and get data
+
+import { userLoginRegister } from "./apiRequest/LoginRegister";
+import { getBooksData } from "./apiRequest/GetBooks";
+
 const createNoopStorage = () => {
   return {
     getItem(_key: any) {
@@ -44,6 +49,8 @@ const reducer = combineReducers({
   Booking: bookingReducer,
   roomArray: Rooms,
   Filterslice: Filterslice,
+  [userLoginRegister.reducerPath]: userLoginRegister.reducer,
+  // [getBooksData.reducerPath]: getBooksData.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -55,7 +62,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(userLoginRegister.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

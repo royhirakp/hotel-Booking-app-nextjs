@@ -6,6 +6,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FormControl } from "@mui/material";
 import MultiStepFormSingup2 from "@/component/singupcomponents/MultiStepFormSingup2";
 import MultiStepFormSingup1 from "@/component/singupcomponents/MultistepSingUpForm1";
+
+import { useSignUpMutation } from "@/redux/apiRequest/LoginRegister";
+
 type Inputs = {
   firstname: string;
   lastName: string;
@@ -18,6 +21,8 @@ type Inputs = {
 
 interface FormFirstPartProps {
   register: any;
+  getValues: any;
+
   errors: any;
   handleSubmit: (
     onSubmit: SubmitHandler<Inputs>
@@ -31,6 +36,9 @@ interface FormFirstPartProps {
 }
 
 const Singup = () => {
+  // register / singup api
+  const [Singup, { isLoading }] = useSignUpMutation();
+
   const [fromState, setFromStae] = useState(1);
   const [emalValidatinS, setemalValidatinS] = useState(true);
   const [mobileValidation, setMobileValidation] = useState(true);
@@ -38,11 +46,22 @@ const Singup = () => {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    alert("From Submited; data=>" + JSON.stringify(data));
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      // let res = await Singup({
+      //   name: "test name form next app",
+      //   email: "royhirakr@text.com",
+      //   password: "Hirak@1234",
+      // });
+      // console.log("req send =", res);
+      console.log(data);
+      // alert("From Submited; data=>" + JSON.stringify(data));
+    } catch (error) {
+      console.log("cant singup error form next app catch block");
+    }
   };
 
   function handelMultiStepForm(state: any) {
@@ -103,6 +122,7 @@ const Singup = () => {
                   register={register}
                   errors={errors}
                   fromState={fromState}
+                  getValues={getValues}
                 />
 
                 {/* {errors.password && <span>Password wilbe 8 letters</span>} */}
@@ -154,6 +174,7 @@ const MultiStepForm: React.FC<FormFirstPartProps> = ({
   mobileValidation,
   setMobileValidation,
   setemalValidatinS,
+  getValues,
 }) => {
   let message;
 
@@ -170,6 +191,7 @@ const MultiStepForm: React.FC<FormFirstPartProps> = ({
             errors={errors}
             register={register}
             handleSubmit={handleSubmit}
+            getValues={getValues}
           />
         </>
       );
