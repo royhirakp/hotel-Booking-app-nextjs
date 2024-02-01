@@ -4,9 +4,9 @@ import React from "react";
 import { Box, Paper, Typography, Stack, Button } from "@mui/material";
 import Image from "next/image";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+// import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -210,7 +210,7 @@ const RoomListControls = ({ setFetchedData }: { setFetchedData: any }) => {
                 <Typography flex={1}>Check-out</Typography>
               </Stack>
               <Box>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DateRangePicker"]}>
                     <DateRangePicker
                       localeText={{ start: "", end: "" }}
@@ -222,7 +222,7 @@ const RoomListControls = ({ setFetchedData }: { setFetchedData: any }) => {
                       onChange={handleInputChange}
                     />
                   </DemoContainer>
-                </LocalizationProvider>
+                </LocalizationProvider> */}
               </Box>
             </div>
           </Box>

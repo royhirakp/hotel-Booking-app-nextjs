@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Typography, Stack, Paper, Button } from "@mui/material";
 // import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+// import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -67,8 +67,7 @@ const CheckAbilibility = () => {
               <Typography flex={1}>Check-out</Typography>
             </Stack>
             <Box>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                {/* <DemoContainer components={["DateRangePicker"]}> */}
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateRangePicker
                   localeText={{ start: "", end: "" }}
                   sx={{
@@ -78,8 +77,7 @@ const CheckAbilibility = () => {
                   }}
                   onChange={handleInputChange}
                 />
-                {/* </DemoContainer> */}
-              </LocalizationProvider>
+              </LocalizationProvider> */}
             </Box>
           </div>
           <Typography variant="subtitle1">Guests</Typography>

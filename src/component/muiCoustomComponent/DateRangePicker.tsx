@@ -1,8 +1,8 @@
 import * as React from "react";
 // import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+// import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { Box, Stack, Typography } from "@mui/material";
 import { useAppDispatch } from "@/redux/hooks";
 import { addFilterQuery } from "@/redux/slices/FilterSlice";
@@ -21,14 +21,12 @@ const DateRangePickercpmponent = ({
         <Typography flex={1}>Check-out</Typography>
       </Stack>
       <Box>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          {/* <DemoContainer components={["DateRangePicker"]}> */}
+        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateRangePicker
             localeText={{ start: "", end: "" }}
             onChange={(e, i) => {
               handleInputChange(e);
               const [startDate, endDate]: [startDate: any, endDate: any] = e;
-              // console.log(startDate?.$d, endDate?.$d);
               let dateRange = startDate?.$d + "Dividerr" + endDate?.$d;
               dispatch(
                 addFilterQuery({
@@ -43,8 +41,7 @@ const DateRangePickercpmponent = ({
               },
             }}
           />
-          {/* </DemoContainer> */}
-        </LocalizationProvider>
+        </LocalizationProvider> */}
       </Box>
     </div>
   );

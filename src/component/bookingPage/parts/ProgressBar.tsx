@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import MuiLinearProgreson from "@/muiCoustomComponent/MuiLinearProgreson";
+import MuiLinearProgreson from "@/component/muiCoustomComponent/MuiLinearProgreson";
 import { useAppSelector } from "@/redux/hooks";
 const ProgressBar = ({ state }: { state: number }) => {
   const formStage = useAppSelector((s) => s.Booking.bookingStage);

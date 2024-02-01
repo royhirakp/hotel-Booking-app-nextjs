@@ -90,7 +90,7 @@ const ImagePart = () => {
       }}
     >
       <Image
-        src="/hotelsphoto/Screenshot 2023-10-03 220127.png"
+        src="/hotelsphoto/Screenshot 2023-10-03 220127.jpg"
         alt=""
         width={1000}
         height={1000}

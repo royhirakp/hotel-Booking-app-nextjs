@@ -1,10 +1,11 @@
-import Singup from "@/pages/Singup/Singup";
+"use client";
+import SingupComponent from "@/component/RoutePages/Singup/SingupComponent";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <Singup />
+      <SingupComponent />
     </div>
   );
 };

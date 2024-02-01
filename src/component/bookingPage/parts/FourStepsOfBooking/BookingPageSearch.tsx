@@ -1,7 +1,7 @@
 "use client";
 import { Box, Button, Stack } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import PaginationRounded from "@/muiCoustomComponent/Pagination";
+import PaginationRounded from "@/component/muiCoustomComponent/Pagination";
 import FilterDataDisplayForMobileMODAL from "../FilterDataDisplayForMobileMODAL";
 import RoomListControls from "../RoomListControls";
 import RoomList from "../RoomList";

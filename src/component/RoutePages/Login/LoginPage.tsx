@@ -3,8 +3,8 @@ import React from "react";
 import { Box, Stack, Typography, Button, Paper, Divider } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 import Image from "next/image";
-import LoginForm from "../../component/Login/parts/LoginForm";
-import DisplayComponent from "../../component/Login/parts/DisplayContent";
+import LoginForm from "../../Login/parts/LoginForm";
+import DisplayComponent from "../../Login/parts/DisplayContent";
 import ComapnyLogo from "@/component/Login/parts/ComapnyLogo";
 
 const LoginPage = () => {

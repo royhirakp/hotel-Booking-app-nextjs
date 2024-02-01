@@ -1,10 +1,12 @@
 "use client";
-import HomePageMain from "@/pages/homePage/HomePageMain";
+import HomePageMain from "@/component/HomePageMain";
+import Link from "next/link";
 import React from "react";
 const page = () => {
   return (
     <>
-      <HomePageMain />
+      wellcome to web app shoping
+      <Link href="/webapp/Home">click here </Link>
     </>
   );
 };

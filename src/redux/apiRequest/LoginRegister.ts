@@ -13,7 +13,9 @@ interface CustomError {
 export const userLoginRegister = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000",
+    baseUrl:
+      // "https://api.dribbble.com/v2",
+      "http://localhost:3000",
     prepareHeaders(headers) {
       const token = localStorage.getItem("token");
       if (token) {

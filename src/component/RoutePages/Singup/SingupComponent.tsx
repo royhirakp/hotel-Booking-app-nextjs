@@ -10,18 +10,22 @@ import MultiStepFormSingup1 from "@/component/singupcomponents/MultistepSingUpFo
 import { useSignUpMutation } from "@/redux/apiRequest/LoginRegister";
 
 type Inputs = {
-  firstname: string;
+  name: string;
   lastName: string;
   email: string;
   mobile: string;
   age: string;
   country: string;
   gender: string;
+  password: string;
+  confirmPassword: string;
 };
 
 interface FormFirstPartProps {
   register: any;
   getValues: any;
+  passwordError: any;
+  setPasswordError: any;
 
   errors: any;
   handleSubmit: (
@@ -35,13 +39,14 @@ interface FormFirstPartProps {
   setMobileValidation: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Singup = () => {
+const SingupComponent = () => {
   // register / singup api
   const [Singup, { isLoading }] = useSignUpMutation();
 
   const [fromState, setFromStae] = useState(1);
   const [emalValidatinS, setemalValidatinS] = useState(true);
   const [mobileValidation, setMobileValidation] = useState(true);
+  const [password_ConfirmError, setpassword_ConfirmError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -51,12 +56,24 @@ const Singup = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      // let res = await Singup({
-      //   name: "test name form next app",
-      //   email: "royhirakr@text.com",
-      //   password: "Hirak@1234",
-      // });
-      // console.log("req send =", res);
+      let fromData = {
+        name: "test name form next app",
+        email: "royhirakr@text.com",
+        password: "Hirak@1234",
+        age: "18-26",
+        country: "india",
+        gender: "m",
+      };
+      if (password_ConfirmError) {
+        alert("Password - confirm password not matched ");
+        return;
+      }
+      if (data.name || data.email) {
+        alert("please pull name and email");
+        return;
+      }
+      let res = await Singup(data);
+      console.log("req send =", res);
       console.log(data);
       // alert("From Submited; data=>" + JSON.stringify(data));
     } catch (error) {
@@ -123,6 +140,8 @@ const Singup = () => {
                   errors={errors}
                   fromState={fromState}
                   getValues={getValues}
+                  passwordError={password_ConfirmError}
+                  setPasswordError={setpassword_ConfirmError}
                 />
 
                 {/* {errors.password && <span>Password wilbe 8 letters</span>} */}
@@ -163,7 +182,7 @@ const Singup = () => {
   );
 };
 
-export default Singup;
+export default SingupComponent;
 
 const MultiStepForm: React.FC<FormFirstPartProps> = ({
   register,
@@ -175,6 +194,8 @@ const MultiStepForm: React.FC<FormFirstPartProps> = ({
   setMobileValidation,
   setemalValidatinS,
   getValues,
+  passwordError,
+  setPasswordError,
 }) => {
   let message;
 
@@ -202,6 +223,8 @@ const MultiStepForm: React.FC<FormFirstPartProps> = ({
           <MultiStepFormSingup2
             register={register}
             handleSubmit={handleSubmit}
+            passwordError={passwordError}
+            setPasswordError={setPasswordError}
           />
         </>
       );

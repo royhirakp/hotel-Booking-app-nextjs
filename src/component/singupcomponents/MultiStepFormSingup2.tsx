@@ -1,13 +1,29 @@
-import MeterialUiSelect from "@/muiCoustomComponent/MeterialUiSelect";
-import { Box, Stack } from "@mui/material";
+import MeterialUiSelect from "@/component/muiCoustomComponent/MeterialUiSelect";
+import { Box, Stack, TextField } from "@mui/material";
+
+import React, { useEffect, useState } from "react";
+import PasswordInput from "../muiCoustomComponent/PasswordInput";
 
 interface MeterialUiSelectProps {
   register: any;
   handleSubmit: any;
+  passwordError: any;
+  setPasswordError: any;
 }
 
 export default function MultiStepFormSingup2(props: MeterialUiSelectProps) {
-  const { handleSubmit, register } = props;
+  const { handleSubmit, register, passwordError, setPasswordError } = props;
+
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect(() => {
+    if (password === confirmPassword) {
+      setPasswordError(false);
+    } else {
+      setPasswordError(true);
+    }
+  }, [confirmPassword]);
   return (
     <>
       <Stack
@@ -56,22 +72,49 @@ export default function MultiStepFormSingup2(props: MeterialUiSelectProps) {
           />
           {/* {errors.email && <span>email letters</span>} */}
         </Box>
-        <Box
+        {/* <Box
           sx={{
             width: "100%",
             alignItems: "center",
             height: "50%",
-
             display: "flex",
             justifyContent: "space-around",
             flexDirection: {
               xs: "column",
               sm: "row",
             },
+            border: "1px solid",
+          }}
+        > */}
+        {/* {errors.email && <span>email letters</span>} */}
+        <Stack
+          sx={{
+            justifyContent: "space-around",
+            width: "100%",
+
+            flexDirection: {
+              xs: "column",
+              sm: "row",
+            },
+            gap: 1,
           }}
         >
-          {/* {errors.email && <span>email letters</span>} */}
-        </Box>
+          <PasswordInput
+            fromItemName="password"
+            lable="password"
+            register={register}
+            setValue={setPassword}
+            passwordError={passwordError}
+          />
+          <PasswordInput
+            fromItemName="confirmPassword"
+            lable="Confirm Password"
+            register={register}
+            setValue={setConfirmPassword}
+            passwordError={passwordError}
+          />
+        </Stack>
+        {/* </Box> */}
       </Stack>
     </>
   );

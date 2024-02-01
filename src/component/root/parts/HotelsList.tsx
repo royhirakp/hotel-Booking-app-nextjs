@@ -79,11 +79,11 @@ const SwiperComponent = () => {
       </Box>
       {[
         { img: "/RoomBookingpage/room1.jpg", id: "1" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png", id: "2" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png", id: "3" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220127.jpg", id: "2" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220127.jpg", id: "3" },
         { img: "/hotelsphoto/Screenshot 2023-10-03 220328.png", id: "4" },
         { img: "/hotelsphoto/Screenshot 2023-10-03 220355.png", id: "5" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220127.png", id: "6" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220127.jpg", id: "6" },
       ].map((item, i) => {
         return (
           <SwiperSlide key={i}>

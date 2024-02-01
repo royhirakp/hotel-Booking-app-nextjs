@@ -1,4 +1,4 @@
-import BackDrop from "@/muiCoustomComponent/BackDrop";
+import BackDrop from "@/component/muiCoustomComponent/BackDrop";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -64,6 +64,7 @@ export default function MultiStepFormSingup1(props: componentProps) {
         </>
         <>
           <EmailVarification
+            setotpVarification={setotpVarification}
             setOpen={setOpen}
             open={open}
             mobileValidation={mobileValidation}
@@ -148,35 +149,27 @@ function FirstNameLastName(props: componentProps) {
     <Box
       sx={{
         width: "100%",
-        // height: "30%",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        flexDirection: {
-          xs: "column",
-          md: "row",
-        },
-        gap: "1rem",
       }}
     >
       <TextField
+        fullWidth
         id="outlined-basic"
-        label="FirstName"
+        label="full name"
         variant="outlined"
         sx={{
-          width: { xs: "90%", md: "45%" },
-          height: "75px",
+          // width: { xs: "90%", md: "45%" },
+          height: "60px",
           ".MuiOutlinedInput-input": {
             // fontSize: "15px",
             // padding: "0",
           },
         }}
-        {...register("firstname", {
+        {...register("name", {
           required: true,
         })}
       />
       {/* {errors.email && <span>email letters</span>} */}
-      <TextField
+      {/* <TextField
         id="outlined-basic"
         label="LastName"
         sx={{
@@ -186,7 +179,7 @@ function FirstNameLastName(props: componentProps) {
         {...register("lastName", {
           required: true,
         })}
-      />
+      /> */}
     </Box>
   );
 }
@@ -211,6 +204,7 @@ interface EmailVarificationProps {
   getValues: any;
   otpInput: any;
   setOTPerror: any;
+  setotpVarification: any;
 }
 interface RequestError {
   status: number;
@@ -235,6 +229,7 @@ const EmailVarification = (props: EmailVarificationProps) => {
     getValues,
     otpInput,
     setOTPerror,
+    setotpVarification,
   } = props;
   const [generateOtp, { isLoading: loadingForGenerateOtp, error }] =
     useGenerateOtpMutation();
@@ -244,6 +239,7 @@ const EmailVarification = (props: EmailVarificationProps) => {
       email: getValues("email"),
       otp: otpInput,
     });
+    console.log(res);
   }
 
   return (
@@ -259,7 +255,7 @@ const EmailVarification = (props: EmailVarificationProps) => {
           },
           justifyContent: "space-around",
           alignItems: "flex-start",
-          border: "3px solid #b1abab",
+          // border: "3px solid #b1abab",
           padding: "1rem 0",
         }}
       >
@@ -331,7 +327,7 @@ const EmailVarification = (props: EmailVarificationProps) => {
                 style={{
                   border: "1px solid",
                   position: "relative",
-                  width: "260px",
+                  width: "203%",
                   height: "50px",
                   borderRadius: "6px",
                   padding: "2px",
@@ -345,14 +341,15 @@ const EmailVarification = (props: EmailVarificationProps) => {
             </Stack>
           </Stack>
           {/* varified icon */}
-          <Box sx={{ minWidth: "25px", paddingTop: "10px" }}>
-            <Box
-              sx={{
-                display: `${otpVarification ? "none" : "block"}`,
-              }}
-            >
-              <CheckCircleIcon sx={{ color: "blue" }} />
-            </Box>
+          <Box
+            sx={{
+              display: `${!isSuccess ? "none" : "block"}`,
+              minWidth: "25px",
+              paddingTop: "10px",
+              paddingLeft: "3px",
+            }}
+          >
+            <CheckCircleIcon sx={{ color: "blue" }} />
           </Box>
         </Stack>
 

@@ -6,9 +6,9 @@ import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Paper, Typography, Stack, Button } from "@mui/material";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+// import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { useAppDispatch } from "@/redux/hooks";
 import { filterSearch } from "@/redux/slices/MockData";
 import FormGroup from "@mui/material/FormGroup";
@@ -134,7 +134,7 @@ const RoomListControlsFormobile = ({ handleClose }: propsType) => {
               <Typography flex={1}>Check-out</Typography>
             </Stack>
             <Box>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer components={["DateRangePicker"]}>
                   <DateRangePicker
                     localeText={{ start: "", end: "" }}
@@ -146,7 +146,7 @@ const RoomListControlsFormobile = ({ handleClose }: propsType) => {
                     onChange={handleInputChange}
                   />
                 </DemoContainer>
-              </LocalizationProvider>
+              </LocalizationProvider> */}
             </Box>
           </div>
         </Box>

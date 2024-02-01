@@ -10,6 +10,8 @@ type Anchor = "top" | "left" | "bottom" | "right";
 
 import Draweerr from "./parts/Draweerr";
 import LoginButtonAndUserProfile from "./parts/LoginButtonAndUserProfile";
+import { useSignUpMutation } from "@/redux/apiRequest/LoginRegister";
+
 const inActiveStyle = {
   transition: "0.3s",
   "&:hover": {
@@ -38,6 +40,8 @@ const NewHeader = () => {
   const [scroolState, setScroolSet] = useState(true);
   const [activeButton, setSActiveButton] = useState<null | number>(0);
   const router = useRouter();
+  const [Singup, { isLoading }] = useSignUpMutation();
+
   // const search = searchParams.get('search')
   // This will not be logged on the server when using static rendering
   // state and function for mobile drawer

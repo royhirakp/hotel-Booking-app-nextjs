@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import StoreProvidor from "@/redux/storeProvidor/StoreProvidor";
+import StoreProvider from "./StoreProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 // to
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        <StoreProvidor> {children} </StoreProvidor>
+      <body className={inter.className}>
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

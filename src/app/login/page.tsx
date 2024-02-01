@@ -1,6 +1,6 @@
 import React from "react";
 
-import LoginPage from "@/pages/Login/LoginPage";
+import LoginPage from "@/component/RoutePages/Login/LoginPage";
 const page = () => {
   return (
     <>

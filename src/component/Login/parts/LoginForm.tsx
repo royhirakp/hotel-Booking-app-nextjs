@@ -14,6 +14,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+// import { useGetRoomsForHomeQuery } from "@/redux/apiRequest/LoginRegister";
+
 type Inputs = {
   email: string;
   password: string;
@@ -56,6 +58,9 @@ const LoginForm = () => {
     router.push("/webapp/Home");
     localStorage.setItem("loginStatus", "nsnssnsns");
   };
+  // const { data } = useGetRoomsForHomeQuery({});
+
+  // console.log(data?.roomsData, "===== home oahe 17.35");
 
   return (
     <>
